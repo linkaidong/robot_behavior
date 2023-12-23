@@ -1,0 +1,14 @@
+<launch>
+    <include file="$(find livox_ros_driver2)/launch_ROS1/msg_MID360.launch">
+        <arg name="rviz_enable" value="false"/>
+        <arg name="publish_freq" value="10"/>
+        <arg name="msg_frame_id" value="livox_frame"/>
+    </include>
+
+    <include file="$(find lidar_repost)/launch/repost_nodelet.launch"/>
+    <include file="$(find rm_navigation)/launch/lio_launch/mapping_mid360.launch"/>
+    <include file="$(find rm_navigation)/launch/linefit_ground_segmentation/linefit_ground_segmentation.launch"/>
+    <include file="$(find rm_navigation)/launch/navigation/move_base.launch"/>
+    <include file="$(find rm_navigation)/launch/navigation/pcl_filters.launch"/>
+</launch>
+

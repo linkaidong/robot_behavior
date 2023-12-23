@@ -1,0 +1,17 @@
+<launch>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, hero, engineer]"/>
+    <arg name="load_controller" default="true"/>
+    <arg name="hw_name" default="$(env HW_NAME)" doc="Hw name [rm_can_hw, rm_ecat_hw]"/>
+
+    <rosparam file="$(find robot_decision)/config/sentry.yaml" command="load"/>
+    <rosparam file="$(find rm_dbus)/config/dbus.yaml" command="load"/>
+    <node name="rm_dbus" pkg="rm_dbus" type="rm_dbus" respawn="false"/>
+
+    <include file="$(find rm_config)/launch/$(env HW_NAME).launch">
+    </include>
+
+    <include file="$(find rm_config)/launch/referee.launch"/>
+
+    <node pkg="robot_decision" type="robot_decision" name="robot_decision" output="screen">
+    </node>
+</launch>

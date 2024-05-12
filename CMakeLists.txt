@@ -33,13 +33,7 @@ include_directories(
         ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(${PROJECT_NAME}  src/main.cpp
-                                src/patrol.cpp
-                                src/is_enemy_visible.cpp
-                                src/track_to_attack.cpp
-                                src/choosemode.cpp
-                                src/navigation.cpp
-                                src/manual.cpp)
+add_executable(${PROJECT_NAME}  src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 

@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
     auto tree = factory_.createTreeFromText(xml_text);
     ros::Rate loop_rate(20);
 
-    while(ros::ok()){
+    while(ros::ok()) {
         tree.tickRoot();
         loop_rate.sleep();
         ros::spinOnce();
